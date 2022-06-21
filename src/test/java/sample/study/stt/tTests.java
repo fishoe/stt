@@ -10,7 +10,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -31,7 +30,7 @@ public class tTests {
     }
 
     @Test
-    @Transactional(value = TxType.REQUIRES_NEW)
+    @Transactional(value = TxType.NEVER)
     public void b_test(){
         List<Name> dbs = repo.findAll();
         assertEquals(0, dbs.size());
